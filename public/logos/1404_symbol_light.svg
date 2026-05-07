@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <!-- Gradient for top cylinder - blue -->
+    <linearGradient id="cylTopBody" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1E88E5"/>
+      <stop offset="50%" stop-color="#42A5F5"/>
+      <stop offset="100%" stop-color="#1565C0"/>
+    </linearGradient>
+    <linearGradient id="cylTopCap" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#64B5F6"/>
+      <stop offset="50%" stop-color="#90CAF9"/>
+      <stop offset="100%" stop-color="#42A5F5"/>
+    </linearGradient>
+    <!-- Gradient for left cylinder - blue -->
+    <linearGradient id="cylLeftBody" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1565C0"/>
+      <stop offset="50%" stop-color="#1E88E5"/>
+      <stop offset="100%" stop-color="#0D47A1"/>
+    </linearGradient>
+    <linearGradient id="cylLeftCap" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#42A5F5"/>
+      <stop offset="50%" stop-color="#64B5F6"/>
+      <stop offset="100%" stop-color="#1E88E5"/>
+    </linearGradient>
+    <!-- Gradient for right cylinder - blue -->
+    <linearGradient id="cylRightBody" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1976D2"/>
+      <stop offset="50%" stop-color="#2196F3"/>
+      <stop offset="100%" stop-color="#1565C0"/>
+    </linearGradient>
+    <linearGradient id="cylRightCap" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#42A5F5"/>
+      <stop offset="50%" stop-color="#64B5F6"/>
+      <stop offset="100%" stop-color="#2196F3"/>
+    </linearGradient>
+    <!-- Gradient for bottom cylinder - teal -->
+    <linearGradient id="cylBottomBody" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00796B"/>
+      <stop offset="50%" stop-color="#00897B"/>
+      <stop offset="100%" stop-color="#004D40"/>
+    </linearGradient>
+    <linearGradient id="cylBottomCap" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#26A69A"/>
+      <stop offset="50%" stop-color="#4DB6AC"/>
+      <stop offset="100%" stop-color="#00897B"/>
+    </linearGradient>
+    <!-- Line gradients -->
+    <linearGradient id="lineGradTopLeft" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E88E5"/>
+      <stop offset="100%" stop-color="#00897B"/>
+    </linearGradient>
+    <linearGradient id="lineGradTopRight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E88E5"/>
+      <stop offset="100%" stop-color="#1565C0"/>
+    </linearGradient>
+    <linearGradient id="lineGradBottomLeft" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E88E5"/>
+      <stop offset="100%" stop-color="#00897B"/>
+    </linearGradient>
+    <linearGradient id="lineGradBottomRight" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1565C0"/>
+      <stop offset="100%" stop-color="#00897B"/>
+    </linearGradient>
+    <!-- Center diamond gradient -->
+    <linearGradient id="centerDiamondGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E88E5"/>
+      <stop offset="100%" stop-color="#00897B"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Connecting lines forming diamond shape (drawn first, behind cylinders) -->
+  <!-- Top-Left line -->
+  <line x1="200" y1="105" x2="100" y2="200" stroke="url(#lineGradTopLeft)" stroke-width="10" stroke-linecap="round"/>
+  <!-- Top-Right line -->
+  <line x1="200" y1="105" x2="300" y2="200" stroke="url(#lineGradTopRight)" stroke-width="10" stroke-linecap="round"/>
+  <!-- Bottom-Left line -->
+  <line x1="100" y1="200" x2="200" y2="295" stroke="url(#lineGradBottomLeft)" stroke-width="10" stroke-linecap="round"/>
+  <!-- Bottom-Right line -->
+  <line x1="300" y1="200" x2="200" y2="295" stroke="url(#lineGradBottomRight)" stroke-width="10" stroke-linecap="round"/>
+  
+  <!-- Inner cross lines to center -->
+  <line x1="200" y1="130" x2="200" y2="180" stroke="#1E88E5" stroke-width="6" stroke-linecap="round"/>
+  <line x1="130" y1="200" x2="180" y2="200" stroke="#1565C0" stroke-width="6" stroke-linecap="round"/>
+  <line x1="220" y1="200" x2="270" y2="200" stroke="#1976D2" stroke-width="6" stroke-linecap="round"/>
+  <line x1="200" y1="220" x2="200" y2="270" stroke="#00897B" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- Center diamond shape -->
+  <polygon points="200,172 228,200 200,228 172,200" fill="none" stroke="url(#centerDiamondGrad)" stroke-width="5"/>
+  <polygon points="200,183 217,200 200,217 183,200" fill="#0A1F3D"/>
+
+  <!-- Top cylinder -->
+  <g transform="translate(200, 80)">
+    <!-- Bottom ellipse (shadow) -->
+    <ellipse cx="0" cy="22" rx="30" ry="11" fill="#0D47A1"/>
+    <!-- Body -->
+    <rect x="-30" y="-2" width="60" height="24" fill="url(#cylTopBody)"/>
+    <!-- Top ellipse (cap) -->
+    <ellipse cx="0" cy="-2" rx="30" ry="11" fill="url(#cylTopCap)"/>
+  </g>
+
+  <!-- Left cylinder -->
+  <g transform="translate(80, 200)">
+    <ellipse cx="0" cy="22" rx="30" ry="11" fill="#0D47A1"/>
+    <rect x="-30" y="-2" width="60" height="24" fill="url(#cylLeftBody)"/>
+    <ellipse cx="0" cy="-2" rx="30" ry="11" fill="url(#cylLeftCap)"/>
+  </g>
+
+  <!-- Right cylinder -->
+  <g transform="translate(320, 200)">
+    <ellipse cx="0" cy="22" rx="30" ry="11" fill="#0D47A1"/>
+    <rect x="-30" y="-2" width="60" height="24" fill="url(#cylRightBody)"/>
+    <ellipse cx="0" cy="-2" rx="30" ry="11" fill="url(#cylRightCap)"/>
+  </g>
+
+  <!-- Bottom cylinder -->
+  <g transform="translate(200, 295)">
+    <ellipse cx="0" cy="22" rx="30" ry="11" fill="#004D40"/>
+    <rect x="-30" y="-2" width="60" height="24" fill="url(#cylBottomBody)"/>
+    <ellipse cx="0" cy="-2" rx="30" ry="11" fill="url(#cylBottomCap)"/>
+  </g>
+</svg>
