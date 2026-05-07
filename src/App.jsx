@@ -1,14 +1,16 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Stats from "./components/Stats";
-import Features from "./components/Features";
 import Services from "./components/Services";
-import Pricing from "./components/Pricing";
-import WhyChooseUs from "./components/WhyChooseUs";
+import OmniServe from "./components/OmniServe";
+import Features from "./components/Features";
 import CaseStudies from "./components/CaseStudies";
 import Testimonials from "./components/Testimonials";
+import WhyChooseUs from "./components/WhyChooseUs";
+import Pricing from "./components/Pricing";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 import {
   nav,
@@ -16,6 +18,7 @@ import {
   stats,
   features,
   services,
+  omniServe,
   pricing,
   discounts,
   certifications,
@@ -24,6 +27,8 @@ import {
   whyChoose,
   contact,
   contactServiceOptions,
+  social,
+  footerLinks,
 } from "./data/content";
 
 export default function App() {
@@ -31,17 +36,45 @@ export default function App() {
     <>
       <Navbar links={nav.links} cta={hero.cta} />
       <main>
-        <Hero {...hero} />
+        {/* 1. Hero — what we do, who we are */}
+        <Hero {...hero} stats={stats} certifications={certifications} />
+
+        {/* 2. Stats band — instant trust numbers */}
         <Stats items={stats} />
-        <Features items={features} />
+
+        {/* 3. Services — what we offer */}
         <Services items={services} />
-        <Pricing rows={pricing} discounts={discounts} />
-        <WhyChooseUs items={whyChoose} />
+
+        {/* 4. OmniServe — product spotlight */}
+        <OmniServe {...omniServe} />
+
+        {/* 5. Delivery Advantage — how we're different */}
+        <Features items={features} />
+
+        {/* 6. Case Studies — proof it works */}
         <CaseStudies items={caseStudies} />
+
+        {/* 7. Testimonials — social proof */}
         <Testimonials items={testimonials} certifications={certifications} />
-        <Contact website={contact.website} email={contact.email} phones={contact.phones} offices={contact.offices} serviceOptions={contactServiceOptions} />
+
+        {/* 8. Why Choose Us — by the numbers */}
+        <WhyChooseUs items={whyChoose} />
+
+        {/* 9. Pricing — now you trust us, here's cost */}
+        <Pricing rows={pricing} discounts={discounts} />
+
+        {/* 10. Contact — convert */}
+        <Contact
+          website={contact.website}
+          websiteUrl={contact.websiteUrl}
+          email={contact.email}
+          phones={contact.phones}
+          offices={contact.offices}
+          serviceOptions={contactServiceOptions}
+        />
       </main>
-      <Footer />
+      <Footer contact={contact} footerLinks={footerLinks} social={social} />
+      <ScrollToTop />
     </>
   );
 }

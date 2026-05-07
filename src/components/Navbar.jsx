@@ -10,18 +10,18 @@ export default function Navbar({ links, cta }) {
           <img
             src="/logos/1404_logo_light.svg"
             alt="1404 Technologies"
-            className="h-14 w-auto"
+            className="h-10 w-auto"
           />
         </a>
 
         <ul className="hidden md:flex items-center gap-9">
-          {links.map((link) => (
-            <li key={link}>
+          {links.map(({ label, href }) => (
+            <li key={label}>
               <a
-                href={`#${link.toLowerCase()}`}
+                href={href}
                 className="text-[13px] font-medium text-[#526A96] hover:text-blue-600 transition-colors duration-150"
               >
-                {link}
+                {label}
               </a>
             </li>
           ))}
@@ -35,6 +35,7 @@ export default function Navbar({ links, cta }) {
             className="md:hidden flex flex-col justify-center gap-[5px] p-2"
             onClick={() => setOpen((o) => !o)}
             aria-label="Toggle menu"
+            aria-expanded={open}
           >
             <span className={`block w-5 h-[2px] bg-navy origin-center transition-transform duration-200 ${open ? "rotate-45 translate-y-[7px]" : ""}`} />
             <span className={`block w-5 h-[2px] bg-navy transition-opacity duration-200 ${open ? "opacity-0" : ""}`} />
@@ -45,14 +46,14 @@ export default function Navbar({ links, cta }) {
 
       {open && (
         <div className="md:hidden bg-white/[0.97] border-t border-blue-100 px-6 py-4 flex flex-col gap-4">
-          {links.map((link) => (
+          {links.map(({ label, href }) => (
             <a
-              key={link}
-              href={`#${link.toLowerCase()}`}
+              key={label}
+              href={href}
               onClick={() => setOpen(false)}
               className="text-[15px] font-medium text-[#526A96] hover:text-blue-600 transition-colors duration-150"
             >
-              {link}
+              {label}
             </a>
           ))}
         </div>

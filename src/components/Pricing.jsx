@@ -1,22 +1,35 @@
+import { useInView } from "../hooks/useInView";
+
 export default function Pricing({ rows, discounts }) {
+  const [headerRef, headerVisible] = useInView();
+  const [tableRef, tableVisible] = useInView();
+
   return (
     <section id="pricing" className="section section--muted">
-      <div className="section__header">
+      <div
+        ref={headerRef}
+        className={`section__header fade-up ${headerVisible ? "is-visible" : ""}`}
+      >
         <span className="section__tag">Transparent Pricing</span>
         <h2 className="section__title">No surprises. Just clear, competitive rates.</h2>
         <p className="section__subtitle">
-          All pricing in USD unless noted. Custom scopes quoted on request.
+          All pricing in USD unless noted. Custom scopes quoted on request — no obligations.
         </p>
       </div>
 
-      <div className="max-w-[1200px] mx-auto">
+      <div
+        ref={tableRef}
+        className={`max-w-[1200px] mx-auto fade-up ${tableVisible ? "is-visible" : ""}`}
+      >
         <div className="overflow-x-auto rounded-[10px] shadow-md mb-8">
           <table className="w-full border-collapse">
+            <caption className="sr-only">1404 Technologies service pricing table</caption>
             <thead className="bg-navy text-white">
               <tr>
                 {["Service", "Pricing model", "Rate range"].map((h) => (
                   <th
                     key={h}
+                    scope="col"
                     className="py-4 px-6 text-left text-[12px] font-bold tracking-[0.08em] uppercase text-[#7BAAC8] whitespace-nowrap"
                   >
                     {h}
@@ -25,7 +38,7 @@ export default function Pricing({ rows, discounts }) {
               </tr>
             </thead>
             <tbody>
-              {rows.map(({ service, url, model, rate, highlight }, idx) => {
+              {rows.map(({ service, url, model, rate, currencyNote, highlight }, idx) => {
                 const isLast = idx === rows.length - 1;
                 const border = isLast ? "" : "border-b border-blue-100";
                 return (
@@ -54,8 +67,28 @@ export default function Pricing({ rows, discounts }) {
                         </span>
                       )}
                     </td>
-                    <td className={`py-[18px] px-6 text-[15px] whitespace-nowrap ${border}`}>{model}</td>
-                    <td className={`py-[18px] px-6 text-[15px] font-bold text-navy whitespace-nowrap ${border}`}>{rate}</td>
+                    <td className={`py-[18px] px-6 text-[15px] text-[#526A96] whitespace-nowrap ${border}`}>
+                      {model}
+                    </td>
+                    <td className={`py-[18px] px-6 text-[15px] whitespace-nowrap ${border}`}>
+                      {rate ? (
+                        <span className="font-bold text-navy">
+                          {rate}
+                          {currencyNote && (
+                            <span className="ml-1 text-[11px] font-semibold text-[#526A96] bg-blue-50 border border-blue-100 py-[2px] px-[6px] rounded">
+                              {currencyNote}
+                            </span>
+                          )}
+                        </span>
+                      ) : (
+                        <a
+                          href="#contact"
+                          className="text-[13px] font-semibold text-blue-600 hover:underline"
+                        >
+                          Request a quote →
+                        </a>
+                      )}
+                    </td>
                   </tr>
                 );
               })}
@@ -63,7 +96,7 @@ export default function Pricing({ rows, discounts }) {
           </table>
         </div>
 
-        <div className="bg-navy rounded-[10px] py-7 px-8">
+        <div className="bg-navy rounded-[10px] py-7 px-8 mb-10">
           <div className="text-[13px] font-bold text-white uppercase tracking-[0.05em] mb-4">
             Discounts available
           </div>
@@ -78,6 +111,15 @@ export default function Pricing({ rows, discounts }) {
               </li>
             ))}
           </ul>
+        </div>
+
+        <div className="text-center">
+          <p className="text-[15px] text-[#526A96] mb-6">
+            Not sure which package is right for you? Our team will match you to the right services within one business day.
+          </p>
+          <a href="#contact" className="btn btn--primary">
+            Get a custom quote →
+          </a>
         </div>
       </div>
     </section>

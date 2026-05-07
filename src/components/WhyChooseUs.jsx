@@ -1,3 +1,5 @@
+import { useInView } from "../hooks/useInView";
+
 const ICONS = {
   currency: (
     <path
@@ -52,14 +54,8 @@ const ICONS = {
 
 function WhyIcon({ name }) {
   return (
-    <div className="w-11 h-11 rounded-xl bg-blue-50 flex items-center justify-center mb-4 mx-auto">
-      <svg
-        className="w-5 h-5 text-blue-600"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-      >
+    <div className="w-11 h-11 rounded-xl bg-blue-100 flex items-center justify-center mb-4 mx-auto">
+      <svg className="w-5 h-5 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         {ICONS[name]}
       </svg>
     </div>
@@ -67,22 +63,32 @@ function WhyIcon({ name }) {
 }
 
 export default function WhyChooseUs({ items }) {
+  const [headerRef, headerVisible] = useInView();
+  const [gridRef, gridVisible] = useInView();
+
   return (
-    <section className="section bg-white">
-      <div className="section__header">
+    <section id="why-us" className="section bg-white">
+      <div
+        ref={headerRef}
+        className={`section__header fade-up ${headerVisible ? "is-visible" : ""}`}
+      >
         <span className="section__tag">Why 1404 Technologies</span>
         <h2 className="section__title">Built for scale. Trusted by enterprises.</h2>
         <p className="section__subtitle">
-          Seven reasons companies across the UK, U.S., and Africa choose 1404 Technologies.
+          The numbers behind why companies across the UK, U.S., and Africa choose 1404 Technologies.
         </p>
       </div>
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-6 max-w-[1200px] mx-auto px-6">
+      <div
+        ref={gridRef}
+        className={`grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-6 max-w-[1200px] mx-auto px-6 stagger-children ${gridVisible ? "is-visible" : ""}`}
+      >
         {items.map(({ stat, label, iconName }) => (
           <div
             key={label}
-            className="bg-[#F5F8FF] border border-blue-100 rounded-2xl py-8 px-6 text-center transition-all duration-[250ms] hover:shadow-md hover:-translate-y-0.5"
+            className="bg-[#F5F8FF] border border-blue-100 rounded-2xl py-8 px-6 text-center
+                       transition-all duration-[250ms] hover:shadow-md hover:-translate-y-0.5"
           >
-            {iconName && <WhyIcon name={iconName} />}
+            <WhyIcon name={iconName} />
             <div className="text-2xl font-extrabold text-blue-600 tracking-[-0.03em] mb-2">{stat}</div>
             <div className="text-[13px] text-[#354E7A] leading-normal">{label}</div>
           </div>

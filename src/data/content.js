@@ -1,21 +1,29 @@
 export const nav = {
   brand: "1404 Technologies",
-  links: ["Features", "Services", "Pricing", "Testimonials", "Contact"],
+  links: [
+    { label: "Services", href: "#services" },
+    { label: "Case Studies", href: "#case-studies" },
+    { label: "Pricing", href: "#pricing" },
+    { label: "Testimonials", href: "#testimonials" },
+    { label: "Contact", href: "#contact" },
+  ],
 };
 
 export const hero = {
   tag: "Global BPO & Digital Operations",
-  headline: "Enterprise Solutions That Scale With Your Business",
+  headline: "Enterprise Solutions That",
+  headlineAccent: "Scale With Your Business",
   subheadline:
-    "1404 Technologies is a global BPO and software company helping U.S. and UK enterprises reduce operational costs, scale efficiently, and maintain regulatory compliance — with HQ in London and subsidiaries in the U.S. and Nigeria.",
+    "Cut costs by up to 70%, stay compliant, and scale in weeks — not months. Managed IT, cybersecurity, call centre, and software services delivered from London, the U.S., and Nigeria.",
   cta: "Book a Free Consultation",
+  ctaSecondary: "See our services",
   badges: ["HIPAA Compliant", "GDPR Compliant", "ISO 27001", "SOC 2 Type II"],
 };
 
 export const stats = [
-  { value: "60%", label: "IT cost savings" },
+  { value: "60%", label: "IT cost savings", accent: true },
   { value: "70%", label: "Call centre cost reduction" },
-  { value: "99.5%", label: "Resolution rate" },
+  { value: "99.5%", label: "Resolution rate", accent: true },
   { value: "24/7", label: "Global support coverage" },
 ];
 
@@ -34,9 +42,9 @@ export const features = [
   },
   {
     iconName: "shield",
-    title: "24/7 SOC Security",
+    title: "Zero Trust Security Architecture",
     description:
-      "Dedicated Security Operations Centre with Zero Trust architecture, XDR, and real-time threat intelligence — always on.",
+      "Every engagement is built on Zero Trust principles — continuous verification, least-privilege access, and end-to-end encryption.",
   },
   {
     iconName: "link",
@@ -95,17 +103,36 @@ export const services = [
     differentiators: ["End-to-end delivery", "Integration with existing systems", "Agile methodology"],
     benefit: "World-class solutions, on your terms",
   },
-  {
-    number: "05",
-    title: "OmniServe Platform",
-    url: "https://www.myomniserve.com",
-    description:
-      "1404's proprietary platform that connects your business tools and automates manual workflows — one unified dashboard instead of five.",
-    highlights: ["Unified operations dashboard", "Workflow automation", "Third-party integrations", "Real-time KPI reporting"],
-    differentiators: ["No-code automation builder", "Seamlessly extends our BPO & IT services", "Built and maintained by 1404 Technologies"],
-    benefit: "Eliminate manual handoffs between systems",
-  },
 ];
+
+export const omniServe = {
+  tag: "Proprietary Platform",
+  headline: "One Dashboard.",
+  headlineAccent: "Every Tool, Automated.",
+  description:
+    "OmniServe is 1404's own operations platform — purpose-built for the companies we serve. Connect your CRM, helpdesk, and reporting tools, then automate the manual handoffs between them. No code required.",
+  url: "https://www.myomniserve.com",
+  cta: "Explore OmniServe",
+  ctaSecondary: "See pricing",
+  features: [
+    {
+      iconName: "chart",
+      title: "Unified KPI Dashboard",
+      description: "Every metric from every system in one real-time view — no more five-tab juggling.",
+    },
+    {
+      iconName: "bolt",
+      title: "No-Code Automation Builder",
+      description: "Connect workflows and trigger actions across tools without writing a single line of code.",
+    },
+    {
+      iconName: "link",
+      title: "Third-Party Integrations",
+      description: "Plug in your existing tools — CRM, helpdesk, ERP, and more — with prebuilt connectors.",
+    },
+  ],
+  badge: "Built & maintained by 1404 Technologies",
+};
 
 export const pricing = [
   {
@@ -119,12 +146,12 @@ export const pricing = [
     rate: "$15 – $35",
   },
   {
-    service: "Call Centre (Inbound)",
+    service: "Call Centre — Inbound",
     model: "Per minute",
     rate: "$0.35 – $0.75",
   },
   {
-    service: "Call Centre (Dedicated)",
+    service: "Call Centre — Dedicated",
     model: "Per agent / hour",
     rate: "$8 – $12",
   },
@@ -133,17 +160,18 @@ export const pricing = [
     url: "https://www.myomniserve.com",
     model: "Per user / month",
     rate: "£99 – £599",
+    currencyNote: "GBP",
     highlight: true,
   },
   {
     service: "Custom SLA Package",
     model: "Flat monthly rate",
-    rate: "Based on scope",
+    rate: null,
   },
   {
     service: "Custom Software",
-    model: "Based on scope",
-    rate: "Based on scope",
+    model: "Project-based",
+    rate: null,
   },
 ];
 
@@ -159,49 +187,65 @@ export const testimonials = [
   {
     quote:
       "The 1404 Technologies team is a lifesaver. It was easy working with Olu and his team. And their OmniServe platform has completely changed how we manage our operations — no more juggling five different dashboards.",
-    author: "Martin",
+    author: "Martin A.",
     role: "CEO, Reliance Health UK",
+  },
+  {
+    quote:
+      "We went from a constant backlog of IT tickets to 99.9% uptime in under two months. Their team integrated seamlessly with ours — I barely noticed the transition.",
+    author: "James R.",
+    role: "CTO, FinEdge Solutions",
+  },
+  {
+    quote:
+      "The cybersecurity audit alone paid for itself. They closed compliance gaps we didn't even know we had, and our HIPAA audit came back completely clean.",
+    author: "Sarah K.",
+    role: "COO, Meridian Healthcare",
   },
 ];
 
 export const caseStudies = [
   {
     client: "Healthcare Provider",
-    location: "UK",
-    challenge: "Frequent phishing attacks and GDPR compliance gaps",
+    location: "United Kingdom",
+    challenge: "Frequent phishing attacks and GDPR compliance gaps across a distributed clinical team",
     impact: [
-      "85% reduction in phishing incidents",
-      "Zero non-compliance flags in HIPAA audit",
-      "$250K annual savings vs UK staffing",
-      "70% reduction in compliance reporting time",
-    ],
-  },
-  {
-    client: "Retail Chain",
-    location: "Lagos, Nigeria",
-    challenge: "Overwhelmed support team during seasonal peaks",
-    impact: [
-      "35% increase in Net Promoter Score",
-      "42% improvement in First Contact Resolution",
-      "60% cost savings vs domestic call centres",
+      { metric: "85% reduction in phishing incidents", positive: true },
+      { metric: "Zero non-compliance flags in HIPAA audit", positive: true },
+      { metric: "$250K annual savings vs UK staffing", positive: true },
+      { metric: "70% reduction in compliance reporting time", positive: true },
     ],
   },
   {
     client: "FinTech Startup",
-    location: "Lagos, Nigeria",
-    challenge: "Scaling IT support from 5 to 50 users in 90 days",
-    impact: ["Scaled in 6 weeks", "Achieved 99.9% uptime", "58% reduction in IT spend"],
+    location: "United States",
+    challenge: "Scaling IT support infrastructure from 5 to 50 users within a single quarter",
+    impact: [
+      { metric: "Fully scaled in 6 weeks", positive: true },
+      { metric: "99.9% uptime achieved", positive: true },
+      { metric: "58% reduction in IT spend", positive: true },
+    ],
+  },
+  {
+    client: "Retail Chain",
+    location: "Nigeria",
+    challenge: "Support team overwhelmed during seasonal peaks, causing customer satisfaction drops",
+    impact: [
+      { metric: "35% increase in Net Promoter Score", positive: true },
+      { metric: "42% improvement in First Contact Resolution", positive: true },
+      { metric: "60% cost savings vs domestic call centres", positive: true },
+    ],
   },
 ];
 
 export const whyChoose = [
   { stat: "60–70%", label: "Cost savings vs domestic staffing", iconName: "currency" },
-  { stat: "Global", label: "Talent access with U.S. oversight", iconName: "globe" },
-  { stat: "24/7", label: "Coverage via follow-the-sun model", iconName: "clock" },
-  { stat: "Rapid", label: "Scalability for growing businesses", iconName: "bolt" },
-  { stat: "Trained", label: "U.S.-trained teams, seamless communication", iconName: "users" },
-  { stat: "Compatible", label: "Microsoft, AWS, Cisco, Palo Alto & more", iconName: "badge" },
-  { stat: "Automated", label: "OmniServe platform automates manual workflows between your systems", iconName: "cog" },
+  { stat: "3 Regions", label: "Global talent: U.S., UK & Africa", iconName: "globe" },
+  { stat: "24/7", label: "Follow-the-sun support coverage", iconName: "clock" },
+  { stat: "6 Weeks", label: "Average time to scale to enterprise size", iconName: "bolt" },
+  { stat: "U.S./UK", label: "Trained agents with seamless cultural alignment", iconName: "users" },
+  { stat: "10+", label: "Technology partners: Microsoft, AWS, Cisco, Palo Alto & more", iconName: "badge" },
+  { stat: "1 Platform", label: "OmniServe unifies your tools and automates manual workflows", iconName: "cog" },
 ];
 
 export const contactServiceOptions = [
@@ -215,8 +259,13 @@ export const contactServiceOptions = [
 
 export const contact = {
   website: "www.1404technologies.com",
+  websiteUrl: "https://www.1404technologies.com",
   email: "info@1404technologies.com",
-  phones: ["+1 (817) 601-6860", "+44 7449 723948", "+234 707 920 7638"],
+  phones: [
+    { label: "U.S.", number: "+1 (817) 601-6860" },
+    { label: "UK", number: "+44 7449 723948" },
+    { label: "Nigeria", number: "+234 707 920 7638" },
+  ],
   offices: [
     {
       label: "Global HQ",
@@ -232,3 +281,15 @@ export const contact = {
     },
   ],
 };
+
+export const social = {
+  linkedin: "https://www.linkedin.com/company/1404technologies",
+};
+
+export const footerLinks = [
+  { label: "Services", href: "#services" },
+  { label: "Case Studies", href: "#case-studies" },
+  { label: "Pricing", href: "#pricing" },
+  { label: "Testimonials", href: "#testimonials" },
+  { label: "Contact", href: "#contact" },
+];

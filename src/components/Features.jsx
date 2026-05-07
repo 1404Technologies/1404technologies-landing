@@ -1,3 +1,5 @@
+import { useInView } from "../hooks/useInView";
+
 const ICONS = {
   link: (
     <path
@@ -42,13 +44,7 @@ const ICONS = {
 function FeatureIcon({ name }) {
   return (
     <div className="w-11 h-11 rounded-xl bg-teal-50 flex items-center justify-center mb-5">
-      <svg
-        className="w-5 h-5 text-blue-600"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-      >
+      <svg className="w-5 h-5 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         {ICONS[name]}
       </svg>
     </div>
@@ -66,16 +62,25 @@ function FeatureCard({ iconName, title, description }) {
 }
 
 export default function Features({ items }) {
+  const [headerRef, headerVisible] = useInView();
+  const [gridRef, gridVisible] = useInView();
+
   return (
     <section id="features" className="section section--muted">
-      <div className="section__header">
-        <span className="section__tag">Our Capabilities</span>
-        <h2 className="section__title">Enterprise-grade services with a proven delivery model</h2>
+      <div
+        ref={headerRef}
+        className={`section__header fade-up ${headerVisible ? "is-visible" : ""}`}
+      >
+        <span className="section__tag">Our Delivery Advantage</span>
+        <h2 className="section__title">What makes our delivery model different</h2>
         <p className="section__subtitle">
-          From managed IT and cybersecurity to call centre operations — built for UK and U.S. enterprises.
+          Six principles that underpin every engagement — from the first call to full operations at scale.
         </p>
       </div>
-      <div className="max-w-[1200px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div
+        ref={gridRef}
+        className={`max-w-[1200px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children ${gridVisible ? "is-visible" : ""}`}
+      >
         {items.map((feature) => (
           <FeatureCard key={feature.title} {...feature} />
         ))}
