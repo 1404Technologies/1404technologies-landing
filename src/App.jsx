@@ -1,12 +1,12 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Stats from "./components/Stats";
+import TrustStrip from "./components/TrustStrip";
 import Services from "./components/Services";
 import OmniServe from "./components/OmniServe";
-import Features from "./components/Features";
+import WhatSetsUsApart from "./components/WhatSetsUsApart";
 import CaseStudies from "./components/CaseStudies";
+import MidCTA from "./components/MidCTA";
 import Testimonials from "./components/Testimonials";
-import WhyChooseUs from "./components/WhyChooseUs";
 import Pricing from "./components/Pricing";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -15,65 +15,70 @@ import ScrollToTop from "./components/ScrollToTop";
 import {
   nav,
   hero,
-  stats,
-  features,
+  trust,
   services,
   omniServe,
+  whatSetsUsApart,
   pricing,
   discounts,
   certifications,
   testimonials,
   caseStudies,
-  whyChoose,
   contact,
   contactServiceOptions,
   social,
   footerLinks,
+  company,
 } from "./data/content";
 
 export default function App() {
   return (
     <>
-      <Navbar links={nav.links} cta={hero.cta} />
+      <Navbar links={nav.links} cta="Book a call" />
       <main>
-        {/* 1. Hero — what we do, who we are */}
-        <Hero {...hero} stats={stats} certifications={certifications} />
+        {/* 1. Hero — dark — value prop, compliance badges, product visual */}
+        <Hero {...hero} certifications={certifications} />
 
-        {/* 2. Stats band — instant trust numbers */}
-        <Stats items={stats} />
+        {/* 2. Trust strip — light slim — clients + partners (validation right after hero) */}
+        <TrustStrip {...trust} />
 
-        {/* 3. Services — what we offer */}
+        {/* 3. Services — light — what we offer (single home for service stats) */}
         <Services items={services} />
 
-        {/* 4. OmniServe — product spotlight */}
+        {/* 4. OmniServe — dark spotlight — proprietary product */}
         <OmniServe {...omniServe} />
 
-        {/* 5. Delivery Advantage — how we're different */}
-        <Features items={features} />
+        {/* 5. What Sets Us Apart — light — capabilities (no overlapping numbers) */}
+        <WhatSetsUsApart {...whatSetsUsApart} />
 
-        {/* 6. Case Studies — proof it works */}
+        {/* 6. Case Studies — dark — proof */}
         <CaseStudies items={caseStudies} />
 
-        {/* 7. Testimonials — social proof */}
+        {/* 7. Mid CTA — light slim — capture interest at persuasion peak */}
+        <MidCTA />
+
+        {/* 8. Testimonials — light muted — social proof */}
         <Testimonials items={testimonials} />
 
-        {/* 8. Why Choose Us — by the numbers */}
-        <WhyChooseUs items={whyChoose} />
-
-        {/* 9. Pricing — now you trust us, here's cost */}
+        {/* 9. Pricing — light — transparent rates */}
         <Pricing rows={pricing} discounts={discounts} />
 
-        {/* 10. Contact — convert */}
+        {/* 10. Contact — dark — convert */}
         <Contact
           website={contact.website}
           websiteUrl={contact.websiteUrl}
           email={contact.email}
-          phones={contact.phones}
           offices={contact.offices}
           serviceOptions={contactServiceOptions}
         />
       </main>
-      <Footer contact={contact} footerLinks={footerLinks} social={social} />
+      <Footer
+        contact={contact}
+        footerLinks={footerLinks}
+        social={social}
+        certifications={certifications}
+        company={company}
+      />
       <ScrollToTop />
     </>
   );

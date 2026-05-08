@@ -5,11 +5,15 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Offset for fixed navbar so anchor links don't hide behind it */
+    scroll-padding-top: 80px;
   }
 
   body {
     @apply font-sans antialiased text-navy;
     line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   img {
@@ -30,6 +34,19 @@
 
   ul {
     list-style: none;
+  }
+
+  /* Respect users who prefer reduced motion — fade-up reveals are nice-to-have */
+  @media (prefers-reduced-motion: reduce) {
+    .fade-up,
+    .stagger-children > * {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+    html {
+      scroll-behavior: auto;
+    }
   }
 }
 
@@ -72,11 +89,11 @@
   }
 
   .section__header {
-    @apply text-center mb-16;
+    @apply text-center mb-14;
   }
 
   .section__tag {
-    @apply inline-block text-[13px] font-semibold tracking-[0.08em] uppercase text-blue-600 mb-3;
+    @apply inline-block text-[12px] font-semibold tracking-[0.14em] uppercase text-blue-600 mb-3;
   }
 
   .section--dark .section__tag {
@@ -84,29 +101,36 @@
   }
 
   .section__title {
-    @apply text-[clamp(28px,4vw,44px)] font-bold leading-tight mb-4;
+    @apply text-[clamp(28px,4vw,44px)] font-bold leading-[1.15] tracking-[-0.01em] mb-4;
+  }
+
+  .section--dark .section__title {
+    @apply text-white;
   }
 
   .section__subtitle {
-    @apply text-lg text-[#526A96] max-w-[640px] mx-auto;
+    @apply text-[16.5px] text-[#526A96] max-w-[640px] mx-auto leading-[1.6];
   }
 
   .section--dark .section__subtitle {
     @apply text-blue-200;
   }
 
+  /* Standardized to two radii: 8px on inputs/buttons, 16px (rounded-2xl) on cards */
   .btn {
-    @apply inline-flex items-center gap-2 py-[14px] px-7 rounded-[6px] text-[15px] font-semibold
-           transition-all duration-[250ms] whitespace-nowrap cursor-pointer;
+    @apply inline-flex items-center gap-2 py-[14px] px-7 rounded-lg text-[14.5px] font-semibold
+           transition-all duration-200 whitespace-nowrap cursor-pointer;
   }
 
   .btn--primary {
     @apply bg-blue-600 text-white hover:bg-blue-700 hover:-translate-y-px
-           hover:shadow-[0_8px_24px_rgba(37,99,235,0.35)];
+           hover:shadow-[0_10px_28px_-8px_rgba(37,99,235,0.45)]
+           focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500;
   }
 
   .btn--outline-white {
     @apply bg-transparent text-white border-2 border-white/30
-           hover:border-white hover:bg-white/[0.14];
+           hover:border-white hover:bg-white/[0.10]
+           focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white;
   }
 }
