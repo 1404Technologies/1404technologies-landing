@@ -55,7 +55,7 @@ export default function App() {
         <CaseStudies items={caseStudies} />
 
         {/* 7. Testimonials — social proof */}
-        <Testimonials items={testimonials} certifications={certifications} />
+        <Testimonials items={testimonials} />
 
         {/* 8. Why Choose Us — by the numbers */}
         <WhyChooseUs items={whyChoose} />

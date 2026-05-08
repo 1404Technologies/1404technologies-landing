@@ -17,7 +17,12 @@ export const hero = {
     "Cut costs by up to 70%, stay compliant, and scale in weeks — not months. Managed IT, cybersecurity, call centre, and software services delivered from London, the U.S., and Nigeria.",
   cta: "Book a Free Consultation",
   ctaSecondary: "See our services",
-  badges: ["HIPAA Compliant", "GDPR Compliant", "ISO 27001", "SOC 2 Type II"],
+  badges: [
+    { label: "HIPAA Compliant", accent: "#10b981" },
+    { label: "GDPR Compliant", accent: "#3b82f6" },
+    { label: "ISO 27001", accent: "#f59e0b" },
+    { label: "SOC 2 Type II", accent: "#6366f1" },
+  ],
 };
 
 export const stats = [
@@ -107,6 +112,9 @@ export const services = [
 
 export const omniServe = {
   tag: "Proprietary Platform",
+  meetHeadline: "Meet OmniServe",
+  meetSubhead:
+    "Unify workflow, performance, and procurement in one platform — built for teams that need clarity, not complexity.",
   headline: "One Dashboard.",
   headlineAccent: "Every Tool, Automated.",
   description:

@@ -22,16 +22,42 @@ export default function Hero({ tag, headline, headlineAccent, subheadline, cta, 
             <a href="#contact" className="btn btn--primary">{cta} →</a>
             <a href="#services" className="btn btn--outline-white">{ctaSecondary}</a>
           </div>
-          <div className="flex gap-3 flex-wrap">
-            {badges.map((badge) => (
-              <span
-                key={badge}
-                className="flex items-center gap-[6px] text-[13px] font-medium text-blue-200
-                           before:content-['✓'] before:text-teal-400 before:font-bold"
-              >
-                {badge}
-              </span>
-            ))}
+          <div>
+            <div className="text-[11px] font-semibold tracking-[0.18em] uppercase text-blue-300/80 mb-3">
+              Certified &amp; compliant
+            </div>
+            <div className="flex gap-2 flex-wrap">
+              {badges.map(({ label, accent }) => (
+                <span
+                  key={label}
+                  className="inline-flex items-center gap-2 text-[13px] font-semibold text-white
+                             py-2 px-3.5 rounded-full border backdrop-blur-sm
+                             transition-transform duration-200 hover:-translate-y-0.5"
+                  style={{
+                    background: `${accent}1f`,
+                    borderColor: `${accent}66`,
+                    boxShadow: `0 4px 14px -4px ${accent}55`,
+                  }}
+                >
+                  <span
+                    className="inline-flex items-center justify-center w-4 h-4 rounded-full"
+                    style={{ background: accent }}
+                    aria-hidden
+                  >
+                    <svg className="w-2.5 h-2.5" viewBox="0 0 20 20" fill="none">
+                      <path
+                        d="M5 10.5l3.5 3.5L15 6.5"
+                        stroke="#fff"
+                        strokeWidth="3"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </span>
+                  {label}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
 

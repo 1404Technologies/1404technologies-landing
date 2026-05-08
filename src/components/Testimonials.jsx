@@ -13,10 +13,9 @@ function TestimonialCard({ quote, author, role }) {
   );
 }
 
-export default function Testimonials({ items, certifications }) {
+export default function Testimonials({ items }) {
   const [headerRef, headerVisible] = useInView();
   const [gridRef, gridVisible] = useInView();
-  const [certRef, certVisible] = useInView();
 
   return (
     <section id="testimonials" className="section section--muted">
@@ -37,23 +36,6 @@ export default function Testimonials({ items, certifications }) {
       >
         {items.map(({ quote, author, role }) => (
           <TestimonialCard key={author} quote={quote} author={author} role={role} />
-        ))}
-      </div>
-
-      <div
-        ref={certRef}
-        className={`max-w-[1200px] mx-auto mt-16 flex justify-center items-center gap-4 flex-wrap fade-up ${certVisible ? "is-visible" : ""}`}
-      >
-        <span className="text-[13px] text-[#526A96] font-medium mr-2">Certified &amp; compliant:</span>
-        {certifications.map((cert) => (
-          <span
-            key={cert}
-            className="inline-flex items-center gap-[6px] bg-white border border-blue-100
-                       rounded-full py-2 px-4 text-[13px] font-semibold text-navy
-                       before:content-['🔒'] before:text-[12px]"
-          >
-            {cert}
-          </span>
         ))}
       </div>
     </section>
