@@ -1,6 +1,6 @@
 import { useInView } from "../hooks/useInView";
 
-export default function TrustStrip({ clientsLabel, clientLogos, partnersLabel, partners }) {
+export default function TrustStrip({ /* clientsLabel, clientLogos, */ partnersLabel, partners }) {
   const [ref, visible] = useInView();
 
   return (
@@ -9,8 +9,7 @@ export default function TrustStrip({ clientsLabel, clientLogos, partnersLabel, p
         ref={ref}
         className={`max-w-[1200px] mx-auto fade-up ${visible ? "is-visible" : ""}`}
       >
-        {/* Clients row — empty until logos are provided. We render a tasteful placeholder
-            so the section reserves space and signals "logos go here" without faking. */}
+        {/* Clients row — commented out until real logos are provided.
         <div className="text-center mb-10">
           <div className="text-[11px] font-semibold tracking-[0.16em] uppercase text-[#7BAAC8] mb-5">
             {clientsLabel}
@@ -41,6 +40,7 @@ export default function TrustStrip({ clientsLabel, clientLogos, partnersLabel, p
             </div>
           )}
         </div>
+        */}
 
         {/* Partners row — names are real (from brochure); the image paths point to logo files
             the user will drop into /public/logos/partners/. Until they exist, render names. */}

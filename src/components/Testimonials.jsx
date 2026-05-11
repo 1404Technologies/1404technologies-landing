@@ -31,7 +31,8 @@ function FeatureQuote({ quote, author, role }) {
 }
 
 // Empty testimonial slot — looks intentional, not broken. Held for future quotes.
-function PlaceholderQuote() {
+// PlaceholderQuote commented out — slots hidden until real stories are available
+/* function PlaceholderQuote() {
   return (
     <div
       className="relative bg-white/60 border border-dashed border-blue-200 rounded-3xl px-8 py-10
@@ -51,7 +52,7 @@ function PlaceholderQuote() {
       <div className="text-[12.5px] text-[#7BAAC8] mt-1">coming soon</div>
     </div>
   );
-}
+} */
 
 export default function Testimonials({ items }) {
   const [headerRef, headerVisible] = useInView();
@@ -60,7 +61,7 @@ export default function Testimonials({ items }) {
   if (!items?.length) return null;
 
   const featured = items.find((i) => !i.placeholder);
-  const placeholders = items.filter((i) => i.placeholder);
+  // const placeholders = items.filter((i) => i.placeholder); // unused while placeholder slots are commented out
 
   return (
     <section id="testimonials" className="section section--muted">
@@ -85,11 +86,13 @@ export default function Testimonials({ items }) {
           <div className="lg:col-span-2">
             {featured && <FeatureQuote {...featured} />}
           </div>
+          {/* Placeholder quote slots — commented out until real stories are available.
           <div className="flex flex-col gap-5">
             {placeholders.map((_, i) => (
               <PlaceholderQuote key={i} />
             ))}
           </div>
+          */}
         </div>
       </div>
     </section>
