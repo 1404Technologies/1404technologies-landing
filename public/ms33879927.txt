@@ -1,0 +1,5 @@
+﻿{
+  "Description": "Domain ownership verification file for Microsoft 365 - place in the website root",
+  "Domain": "1404technologies.com",
+  "Id": "8353ff35-79e1-421f-9e11-d91828f903ee"
+}
