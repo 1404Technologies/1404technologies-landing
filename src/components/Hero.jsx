@@ -55,13 +55,13 @@ export default function Hero({ tag, headline, headlineAccent, subheadline, cta, 
           </motion.div>
 
           {/* Headline — word-mask reveal */}
-          <h1 className="text-[clamp(40px,5.4vw,64px)] font-extrabold leading-[1.04] tracking-[-0.032em] mb-6">
+          <h1 className="text-[clamp(40px,5.4vw,64px)] font-bold leading-[1.1] tracking-[-0.02em] mb-6">
             <TextReveal text={headline} as="span" className="block" />{" "}
             <span className="block">
               <TextReveal
                 text={headlineAccent}
-                as="em"
-                className="not-italic inline-block bg-gradient-to-r from-brand-tag via-brand-tag to-brand-on-dark-3 bg-clip-text text-transparent"
+                as="span"
+                className="text-brand-tag font-semibold"
                 delayChildren={headline.split(" ").length * 0.06 + 0.05}
               />
             </span>

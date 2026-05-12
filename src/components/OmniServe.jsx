@@ -168,13 +168,14 @@ export default function OmniServe({ tag, meetHeadline, meetSubhead, description,
             variants={container(0.1, 0.05)}
           >
             <h2
-              className="font-extrabold text-white leading-[1.04] mb-5 tracking-[-0.025em]"
+              className="font-bold text-white leading-[1.1] mb-5 tracking-[-0.02em]"
               style={{ fontSize: "clamp(36px, 5vw, 56px)" }}
             >
               <TextReveal text={meetHeadline} as="span" className="block" />{" "}
-              <span className="block bg-gradient-to-r from-brand-tag to-brand-on-dark-3 bg-clip-text text-transparent">
+              <span className="block">
                 <TextReveal
                   text="— one platform."
+                  className="text-brand-tag font-semibold"
                   delayChildren={meetHeadline.split(" ").length * 0.06}
                 />
               </span>
