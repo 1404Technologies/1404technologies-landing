@@ -1,6 +1,14 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { ease, duration, container } from "../lib/motion";
 
+// Brand colors for glow on hover — keyed by partner name
+const PARTNER_GLOW = {
+  "Microsoft":          "rgba(0,120,212,0.35)",
+  "AWS":                "rgba(255,153,0,0.35)",
+  "Cisco":              "rgba(4,159,217,0.35)",
+  "Palo Alto Networks": "rgba(240,78,35,0.35)",
+};
+
 export default function TrustStrip({ partnersLabel, partners }) {
   return (
     <section className="bg-white border-y border-brand-border py-14 px-6 relative overflow-hidden">
@@ -37,7 +45,7 @@ export default function TrustStrip({ partnersLabel, partners }) {
 
         <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
           {partners.map(({ name, src }) => (
-            <PartnerLogo key={name} name={name} src={src} />
+            <PartnerLogo key={name} name={name} src={src} glow={PARTNER_GLOW[name]} />
           ))}
         </div>
       </motion.div>
@@ -45,7 +53,7 @@ export default function TrustStrip({ partnersLabel, partners }) {
   );
 }
 
-function PartnerLogo({ name, src }) {
+function PartnerLogo({ name, src, glow }) {
   const reduced = useReducedMotion();
   return (
     <motion.div
@@ -53,21 +61,15 @@ function PartnerLogo({ name, src }) {
         hidden: { opacity: 0, y: 10 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: ease.out } },
       }}
-      whileHover={reduced ? undefined : { y: -3, scale: 1.05 }}
-      transition={{ duration: 0.2, ease: ease.out }}
+      whileHover={reduced ? undefined : { y: -3, filter: `drop-shadow(0 4px 16px ${glow})` }}
+      transition={{ duration: 0.25, ease: ease.out }}
       className="flex items-center justify-center h-9 cursor-default"
     >
       <img
         src={src}
         alt={name}
-        className="h-7 w-auto opacity-50 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0"
+        className="h-7 w-auto"
         loading="lazy"
-        onError={(e) => {
-          const fallback = document.createElement("span");
-          fallback.className = "text-[14px] font-semibold tracking-tight text-brand-muted hover:text-brand transition-colors";
-          fallback.textContent = name;
-          e.currentTarget.replaceWith(fallback);
-        }}
       />
     </motion.div>
   );

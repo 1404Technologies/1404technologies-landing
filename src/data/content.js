@@ -40,15 +40,11 @@ export const trust = {
   // Keep empty until real client logos are provided. Component shows a tasteful skeleton.
   clientLogos: [],
   partnersLabel: "Built on the platforms you already trust",
-  // Names are real (from brochure); image paths are placeholders the user will fill in.
   partners: [
     { name: "Microsoft", src: "/logos/partners/microsoft.svg" },
     { name: "AWS", src: "/logos/partners/aws.svg" },
     { name: "Cisco", src: "/logos/partners/cisco.svg" },
     { name: "Palo Alto Networks", src: "/logos/partners/palo-alto.svg" },
-    { name: "Salesforce", src: "/logos/partners/salesforce.svg" },
-    { name: "Xero", src: "/logos/partners/xero.svg" },
-    { name: "QuickBooks", src: "/logos/partners/quickbooks.svg" },
   ],
 };
 
