@@ -290,7 +290,7 @@ export const certifications = ["HIPAA", "GDPR", "ISO 27001", "SOC 2 Type II"];
 export const testimonials = [
   {
     quote:
-      "The 1404 Technologies team is a lifesaver. It was easy working with Olu and his team. And OmniServe has completely changed how we manage our operations — no more juggling five different dashboards.",
+      "The 1404 Technologies team is a lifesaver. It was easy working with Olu and his team. And 1404 Connect has completely changed how we manage our operations — no more juggling five different dashboards.",
     author: "Martin",
     role: "CEO, Reliance Health UK",
   },

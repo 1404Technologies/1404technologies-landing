@@ -211,7 +211,7 @@ development, support, and maintenance tailored to meet their needs.
 ## Testimonial
 
 > "The 1404 Technologies team is a lifesaver. It was easy working with Olu and
-> his team. And OmniServe has completely changed how we manage our operations
+> his team. And 1404 Connect has completely changed how we manage our operations
 > — no more juggling five different dashboards."
 >
 > — **Martin**, CEO, Reliance Health UK
